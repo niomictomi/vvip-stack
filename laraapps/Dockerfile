@@ -1,5 +1,5 @@
 # Gunakan image PHP-FPM
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 # Set working directory
 WORKDIR /var/www
@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
-COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.8 /usr/bin/composer /usr/bin/composer
 
 # Copy existing application directory contents
 COPY . /var/www
